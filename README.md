@@ -2,6 +2,33 @@
 
 A simple way to deal with NSAttributedStrings
 
+## Demo
+![Demo App](Demo.png) 
+```swift
+// lyrics is just a String of the lyrics to Never Gonna Give You Up
+let rickroll = lyrics
+
+    // Converts the lyrics (String) to Attributed
+    .attributed() 
+
+    // Highlights "Never gonna" blue
+    .highlight(usingRegex: "Never gonna", options: [], color: .systemBlue) 
+
+    // Sets text color of "Never gonna" to system background
+    .textColor(usingRegex: "Never gonna", options: [], color: .systemBackground) 
+
+    // Sets anything within 2 brackets as italics 
+    // E.g. (Hello) or (123)
+    .italic(usingRegex: "\\((.)+\\)", options: [])
+
+    // Makes everything between 0 and 23 bold
+    // Basically the title
+    .bold(in: 0...23)
+
+// Set attributed text of a textView to the rickroll string generated
+textView.attributedText = rickroll.attributedString
+```
+
 ## Features
 - [x] Easily set text as **bold**, _italics_ or _**both at the same time**_. 
 - [x] Set text colors and highlight colors using ranges 
@@ -60,6 +87,18 @@ nsAttributedString.attributed()
 Attributed(UIImage(named: "Here's an image")!)
 
 UIImage(named: "image").attributed()
+```
+</details>
+
+<details>
+<summary><strong>Creating using HTML/RTF/TXT files</strong></summary>
+
+```swift
+Attributed(usingData: htmlData, ofType: .html)
+
+Attributed(usingData: rtfData, ofType: .rtf)
+
+Attributed(usingData: htmlData, ofType: .html, characterEncoding: .utf16)
 ```
 </details>
 

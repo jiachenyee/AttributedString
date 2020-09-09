@@ -81,6 +81,23 @@ class Attributed {
         self.attributedString = attributedString
     }
     
+    init(usingData data: Data,
+         ofType type: NSAttributedString.DocumentType,
+         characterEncoding: String.Encoding? = nil) throws {
+        
+        var options: [NSAttributedString.DocumentReadingOptionKey: Any] = [:]
+        
+        options.updateValue(type, forKey: .documentType)
+        
+        if let characterEncoding = characterEncoding {
+            options.updateValue(Int(characterEncoding.rawValue), forKey: .characterEncoding)
+        }
+        
+        self.attributedString = try NSMutableAttributedString(data: data,
+                                                              options: options,
+                                                              documentAttributes: nil)
+    }
+    
     static func +(lhs: Attributed, rhs: Attributed) -> Attributed {
         let string = lhs.attributedString ?? NSMutableAttributedString()
         
