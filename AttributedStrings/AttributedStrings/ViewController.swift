@@ -15,14 +15,86 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let attributes = Attributed(Attributed("Never gonna give you up")
-                                            .bold()
-                                            .italic(in: 0...5)
-                                            .textColor(in: 0...5, color: .systemRed)
-                                            .highlight(in: 6...11, with: .cyan),
-                                          Attributed("HAHA")
-                                            .bold(),
-                                          Attributed(UIImage(systemName: "square.and.pencil")!))
+        let attributes = try! """
+Never Gonna Give You Up
+We're no strangers to love
+
+You know the rules and so do I
+A full commitment's what I'm thinking of
+You wouldn't get this from any other guy
+I just wanna tell you how I'm feeling
+
+Gotta make you understand
+
+Never gonna give you up
+Never gonna let you down
+Never gonna run around and desert you
+Never gonna make you cry
+Never gonna say goodbye
+
+Never gonna tell a lie and hurt you
+We've known each other for so long
+Your heart's been aching but
+You're too shy to say it
+
+Inside we both know what's been going on
+
+We know the game and we're gonna play it
+And if you ask me how I'm feeling
+Don't tell me you're too blind to see
+Never gonna give you up
+Never gonna let you down
+Never gonna run around and desert you
+
+Never gonna make you cry
+Never gonna say goodbye
+Never gonna tell a lie and hurt you
+Never gonna give you up
+Never gonna let you down
+Never gonna run around and desert you
+
+Never gonna make you cry
+Never gonna say goodbye
+Never gonna tell a lie and hurt you
+(Ooh, give you up)
+(Ooh, give you up)
+(Ooh)
+Never gonna give, never gonna give
+(Give you up)(Ooh)
+Never gonna give, never gonna give(Give you up)
+We've know each other for so long
+Your heart's been aching but
+You're too shy to say it
+Inside we both know what's been going on
+
+We know the game and we're gonna play it
+I just wanna tell you how I'm feeling
+Gotta make you understand
+Never gonna give you up
+
+Never gonna let you down
+Never gonna run around and desert you
+Never gonna make you cry
+Never gonna say goodbye
+Never gonna tell a lie and hurt you
+Never gonna give you up
+Never gonna let you down
+Never gonna run around and desert you
+Never gonna make you cry
+Never gonna say goodbye
+Never gonna tell a lie and hurt you
+Never gonna give you up
+Never gonna let you down
+Never gonna run around and desert you
+Never gonna make you cry
+Never gonna say goodbye
+Never gonna tell a lie and hurt you
+"""
+            .attributed()
+            .highlight(usingRegex: "Never gonna", options: [], color: .systemBlue)
+            .textColor(usingRegex: "Never gonna", options: [], color: .systemBackground)
+            .italic(usingRegex: "\\((.)+\\)", options: [])
+            .bold(in: 0...23)
         
         textView.attributedText = attributes.attributedString
         
