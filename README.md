@@ -2,6 +2,7 @@
 
 A simple way to deal with NSAttributedStrings
 
+## Demo
 ![Demo App](Demo.png) 
 ```swift
 // lyrics is just a String of the lyrics to Never Gonna Give You Up
