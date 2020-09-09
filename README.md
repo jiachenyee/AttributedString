@@ -175,7 +175,6 @@ AttributedString("Never gonna give you up")
 ```
 
 Make a range of text underlined using Regular Expressions
-> Result: *1234*ABC
 ```swift
 AttributedString("1234ABC")
     .underline(usingRegex: "[0-9]", options: [], color: .systemRed, style: .single)
