@@ -11,12 +11,5 @@ import Foundation
 import UIKit
 
 extension Attributed {
-    func font(_ font: UIFont, withRange range: ClosedRange<Int>) {
-        
-    }
-    
-    func font(_ font: UIFont) {
-        
-    }
 }
 #endif

@@ -13,6 +13,15 @@ A simple way to deal with NSAttributedStrings
 - [ ] Add table support
 
 ## Installation
+### Swift Package Manager
+```swift
+let package = Package(
+    name: "MyApp",
+    dependencies: [
+        .Package(url: "https://github.com/jiachenyee/AttributedString.git", majorVersion: 1)
+    ]
+)
+```
 
 ## Usage
 > Result: _Never_ gonna give you up
