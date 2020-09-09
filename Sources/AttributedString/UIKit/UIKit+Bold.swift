@@ -37,18 +37,12 @@ extension AttributedString {
     
     /// Make text bold within a specific range (using 1...9)
     /// - Parameter range: The range of text intended to be bold
-    func bold(in range: ClosedRange<Int>) -> AttributedString {
+    func bold(in range: ClosedRange<Int>? = nil) -> AttributedString {
+        let range = range ?? 0...attributedString.length
         let length = range.upperBound - range.lowerBound
-        let range = NSRange(location: range.lowerBound, length: length)
+        let nsRange = NSRange(location: range.lowerBound, length: length)
         
-        return bold(in: range)
-    }
-    
-    /// Make all text bold
-    ///
-    /// Make text bold for the full range of the text.
-    func bold() -> AttributedString {
-        return bold(in: 0...attributedString.length - 1)
+        return bold(in: nsRange)
     }
     
     func bold(usingRegex pattern: String, options: NSRegularExpression.Options) throws -> AttributedString {
@@ -91,18 +85,12 @@ extension AttributedString {
     
     /// Make text bold within a specific range (using 1...9)
     /// - Parameter range: The range of text intended to be bold
-    func removeBold(in range: ClosedRange<Int>) -> AttributedString {
+    func removeBold(in range: ClosedRange<Int>? = nil) -> AttributedString {
+        let range = range ?? 0...attributedString.length
         let length = range.upperBound - range.lowerBound
-        let range = NSRange(location: range.lowerBound, length: length)
+        let nsRange = NSRange(location: range.lowerBound, length: length)
         
-        return removeBold(in: range)
-    }
-    
-    /// Make all text bold
-    ///
-    /// Make text bold for the full range of the text.
-    func removeBold() -> AttributedString {
-        return removeBold(in: 0...attributedString.length - 1)
+        return removeBold(in: nsRange)
     }
     
     func removeBold(usingRegex pattern: String, options: NSRegularExpression.Options) throws -> AttributedString {

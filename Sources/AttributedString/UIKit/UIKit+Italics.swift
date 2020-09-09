@@ -34,18 +34,12 @@ extension AttributedString {
     
     /// Make text italic within a specific range
     /// - Parameter range: The range of text intended to be italic
-    func italic(in range: ClosedRange<Int>) -> AttributedString {
+    func italic(in range: ClosedRange<Int>? = nil) -> AttributedString {
+        let range = range ?? 0...attributedString.length
         let length = range.upperBound - range.lowerBound
-        let range = NSRange(location: range.lowerBound, length: length)
+        let nsRange = NSRange(location: range.lowerBound, length: length)
         
-        return italic(in: range)
-    }
-    
-    /// Make all text bold
-    ///
-    /// Make text bold for the full range of the text.
-    func italic() -> AttributedString {
-        return italic(in: 0...attributedString.length - 1)
+        return italic(in: nsRange)
     }
     
     func italic(usingRegex pattern: String, options: NSRegularExpression.Options) throws -> AttributedString {
@@ -86,18 +80,12 @@ extension AttributedString {
     
     /// Make text italic within a specific range
     /// - Parameter range: The range of text intended to be italic
-    func removeItalic(in range: ClosedRange<Int>) -> AttributedString {
+    func removeItalic(in range: ClosedRange<Int>? = nil) -> AttributedString {
+        let range = range ?? 0...attributedString.length
         let length = range.upperBound - range.lowerBound
-        let range = NSRange(location: range.lowerBound, length: length)
+        let nsRange = NSRange(location: range.lowerBound, length: length)
         
-        return removeItalic(in: range)
-    }
-    
-    /// Make all text bold
-    ///
-    /// Make text bold for the full range of the text.
-    func removeItalic() -> AttributedString {
-        return removeItalic(in: 0...attributedString.length - 1)
+        return removeItalic(in: nsRange)
     }
     
     func removeItalic(usingRegex pattern: String, options: NSRegularExpression.Options) throws -> AttributedString {

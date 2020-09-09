@@ -18,9 +18,10 @@ class ViewController: UIViewController {
         let attr = try! "HAHAAHA"
             .attributed()
             .bold(usingRegex: "A", options: [])
-            .italic(for: 0...3)
+            .italic(in: 0...3)
             .removeItalic(usingRegex: "A", options: [])
-            .removeBold(for: 3...5)
+            .removeBold(in: 3...5)
+            .underline(color: .red)
         
         textView.attributedText = attr.attributedString
         
