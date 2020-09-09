@@ -19,6 +19,8 @@ class ViewController: UIViewController {
             .attributed()
             .bold()
             .italic(in: 0...5)
+            .textColor(in: 0...5, color: .systemRed)
+            .highlight(in: 6...11, with: .cyan)
         
         textView.attributedText = attributes.attributedString
         

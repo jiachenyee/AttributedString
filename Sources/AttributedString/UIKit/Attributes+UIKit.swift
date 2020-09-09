@@ -18,21 +18,5 @@ extension AttributedString {
     func font(_ font: UIFont) {
         
     }
-    
-    func textColor(_ color: UIColor, withRange range: ClosedRange<Int>) {
-        
-    }
-    
-    func textColor(_ color: UIColor) {
-        
-    }
-    
-    func backgroundColor(_ color: UIColor, withRange range: ClosedRange<Int>) {
-        
-    }
-    
-    func backgroundColor(_ color: UIColor) {
-        
-    }
 }
 #endif
