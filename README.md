@@ -63,6 +63,18 @@ UIImage(named: "image").attributed()
 ```
 </details>
 
+<details>
+<summary><strong>Creating using HTML/RTF/TXT files</strong></summary>
+
+```swift
+Attributed(usingData: htmlData, ofType: .html)
+
+Attributed(usingData: rtfData, ofType: .rtf)
+
+Attributed(usingData: htmlData, ofType: .html, characterEncoding: .utf16)
+```
+</details>
+
 ---
 
 ### Concatenating or Joining
