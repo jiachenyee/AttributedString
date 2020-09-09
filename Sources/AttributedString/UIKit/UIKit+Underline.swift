@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  UIKit+Underline.swift
 //  
 //
 //  Created by JiaChen(: on 9/9/20.
@@ -39,14 +39,17 @@ extension AttributedString {
         return underline(in: nsRange, color: color, style: style)
     }
     
-    func underline(usingRegex pattern: String, options: NSRegularExpression.Options) throws -> AttributedString {
+    func underline(usingRegex pattern: String,
+                   options: NSRegularExpression.Options,
+                   color: UIColor = .label,
+                   style: NSUnderlineStyle = .single) throws -> AttributedString {
         let regex = try NSRegularExpression(pattern: pattern, options: options)
         let matches = regex.matches(in: attributedString.string,
                                     options: [],
                                     range: NSRange(location: 0, length: attributedString.length))
         
         matches.forEach { (result) in
-            _ = underline(in: result.range)
+            _ = underline(in: result.range, color: color, style: style)
         }
         
         return self

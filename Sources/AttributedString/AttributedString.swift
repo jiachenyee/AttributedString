@@ -12,7 +12,7 @@ extension String {
 }
 
 extension NSAttributedString {
-    func attributedString() -> AttributedString {
+    func attributed() -> AttributedString {
         let mutable = NSMutableAttributedString(attributedString: self)
         
         return AttributedString(mutable)
@@ -22,7 +22,7 @@ extension NSAttributedString {
 class AttributedString {
     var attributedString: NSMutableAttributedString!
     
-    private let defaultFont = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+    let defaultFont = UIFont.systemFont(ofSize: UIFont.systemFontSize)
     
     #if canImport(UIKit)
     init(_ image: UIImage) {

@@ -15,15 +15,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let attr = try! "HAHAAHA"
+        let attributes = "Never gonna give you up"
             .attributed()
-            .bold(usingRegex: "A", options: [])
-            .italic(in: 0...3)
-            .removeItalic(usingRegex: "A", options: [])
-            .removeBold(in: 3...5)
-            .underline(color: .red)
+            .bold()
+            .italic(in: 0...5)
+            .textColor(in: 0...5, color: .systemRed)
+            .highlight(in: 6...11, with: .cyan)
         
-        textView.attributedText = attr.attributedString
+        textView.attributedText = attributes.attributedString
         
     }
 }
