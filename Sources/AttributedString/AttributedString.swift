@@ -12,7 +12,7 @@ extension String {
 }
 
 extension NSAttributedString {
-    func attributedString() -> AttributedString {
+    func attributed() -> AttributedString {
         let mutable = NSMutableAttributedString(attributedString: self)
         
         return AttributedString(mutable)
