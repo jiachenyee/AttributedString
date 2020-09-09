@@ -10,14 +10,14 @@ import Foundation
 #if canImport(UIKit)
 import UIKit
 
-extension AttributedString {
+extension Attributed {
     
     // MARK: - Bold
     
     /// Make text bold within a specific range (using NSRange)
     /// - Parameter range: The range of text intended to be bold
     /// - Returns: Attributed Strings
-    func bold(in range: NSRange) -> AttributedString {
+    func bold(in range: NSRange) -> Attributed {
         attributedString.enumerateAttribute(.font, in: range, options: []) { (fontAttribute, range, _) in
             guard let fontAttribute = fontAttribute as? UIFont else { return }
             
@@ -32,12 +32,12 @@ extension AttributedString {
             attributedString.addAttribute(.font, value: newFont, range: range)
         }
         
-        return AttributedString(attributedString)
+        return Attributed(attributedString)
     }
     
     /// Make text bold within a specific range (using 1...9)
     /// - Parameter range: The range of text intended to be bold
-    func bold(in range: ClosedRange<Int>? = nil) -> AttributedString {
+    func bold(in range: ClosedRange<Int>? = nil) -> Attributed {
         let range = range ?? 0...attributedString.length
         let length = range.upperBound - range.lowerBound
         let nsRange = NSRange(location: range.lowerBound, length: length)
@@ -45,7 +45,7 @@ extension AttributedString {
         return bold(in: nsRange)
     }
     
-    func bold(usingRegex pattern: String, options: NSRegularExpression.Options) throws -> AttributedString {
+    func bold(usingRegex pattern: String, options: NSRegularExpression.Options) throws -> Attributed {
         let regex = try NSRegularExpression(pattern: pattern, options: options)
         let matches = regex.matches(in: attributedString.string,
                                     options: [],
@@ -63,7 +63,7 @@ extension AttributedString {
     /// Make text bold within a specific range (using NSRange)
     /// - Parameter range: The range of text intended to be bold
     /// - Returns: Attributed Strings
-    func removeBold(in range: NSRange) -> AttributedString {
+    func removeBold(in range: NSRange) -> Attributed {
         attributedString.enumerateAttribute(.font, in: range, options: []) { (fontAttribute, range, _) in
             guard let fontAttribute = fontAttribute as? UIFont else { return }
             
@@ -80,12 +80,12 @@ extension AttributedString {
             attributedString.addAttribute(.font, value: newFont, range: range)
         }
         
-        return AttributedString(attributedString)
+        return Attributed(attributedString)
     }
     
     /// Make text bold within a specific range (using 1...9)
     /// - Parameter range: The range of text intended to be bold
-    func removeBold(in range: ClosedRange<Int>? = nil) -> AttributedString {
+    func removeBold(in range: ClosedRange<Int>? = nil) -> Attributed {
         let range = range ?? 0...attributedString.length
         let length = range.upperBound - range.lowerBound
         let nsRange = NSRange(location: range.lowerBound, length: length)
@@ -93,7 +93,7 @@ extension AttributedString {
         return removeBold(in: nsRange)
     }
     
-    func removeBold(usingRegex pattern: String, options: NSRegularExpression.Options) throws -> AttributedString {
+    func removeBold(usingRegex pattern: String, options: NSRegularExpression.Options) throws -> Attributed {
         let regex = try NSRegularExpression(pattern: pattern, options: options)
         let matches = regex.matches(in: attributedString.string,
                                     options: [],

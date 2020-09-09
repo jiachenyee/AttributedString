@@ -10,7 +10,7 @@ import Foundation
 #if canImport(UIKit)
 import UIKit
 
-extension AttributedString {
+extension Attributed {
     func font(_ font: UIFont, withRange range: ClosedRange<Int>) {
         
     }

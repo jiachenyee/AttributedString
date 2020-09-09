@@ -7,6 +7,7 @@ A simple way to deal with NSAttributedStrings
 - [x] Set text colors and highlight colors using ranges 
 - [x] Use Regular Expressions to easily provide attributes to certain parts of a String
 - [x] Easily underline words
+- [x] Easily embed an image into the text
 
 ## To-Dos
 - [ ] Add table support
@@ -27,7 +28,7 @@ let attributes = "Never gonna give you up"
 <summary><strong>Creating using String</strong></summary>
 
 ```swift
-AttributedString("Never gonna give you up")
+Attributed("Never gonna give you up")
 "Never gonna give you up".attributed()
 ```
 </details>
@@ -38,8 +39,18 @@ AttributedString("Never gonna give you up")
 ```swift
 let nsAttributedString = NSMutableAttributedString(string: "Never gonna let you down")
 
-AttributedString(nsAttributedString)
+Attributed(nsAttributedString)
 nsAttributedString.attributed()
+```
+</details>
+
+<details>
+<summary><strong>Creating using UIImage</strong></summary>
+
+```swift
+Attributed(UIImage(named: "Here's an image")!)
+
+UIImage(named: "image").attributed()
 ```
 </details>
 
@@ -50,9 +61,9 @@ nsAttributedString.attributed()
 <summary><strong>Concatenating multiple Strings together to create a String</strong></summary>
 
 ```swift
-AttributedString("Never gonna give you up", "Never gonna let you down", ...)
+Attributed("Never gonna give you up", "Never gonna let you down", ...)
 
-AttributedString(["Never gonna give you up", "Never gonna let you down"])
+Attributed(["Never gonna give you up", "Never gonna let you down"])
 ```
 </details>
 
@@ -60,9 +71,9 @@ AttributedString(["Never gonna give you up", "Never gonna let you down"])
 <summary><strong>Concatenating multiple NSAttributedStrings together to create an AttributedString</strong></summary>
 
 ```swift
-AttributedString(nsAttributedString, nsAttributedString, ...)
+Attributed(nsAttributedString, nsAttributedString, ...)
 
-AttributedString([nsAttributedString, nsAttributedString])
+Attributed([nsAttributedString, nsAttributedString])
 ```
 </details>
 
@@ -70,11 +81,11 @@ AttributedString([nsAttributedString, nsAttributedString])
 <summary><strong>Concatenating multiple AttributedStrings together to create a larger AttributedString</strong></summary>
 
 ```swift
-AttributedString("Never gonna give you up") + AttributedString("Never gonna let you down")
+Attributed("Never gonna give you up") + Attributed("Never gonna let you down")
 
-AttributedString(.init("Never gonna give you up"), .init("Never gonna let you down"), ...)
+Attributed(.init("Never gonna give you up"), .init("Never gonna let you down"), ...)
 
-AttributedString([.init("Never gonna give you up"), .init("Never gonna let you down")])
+Attributed([.init("Never gonna give you up"), .init("Never gonna let you down")])
 ```
 </details>
 

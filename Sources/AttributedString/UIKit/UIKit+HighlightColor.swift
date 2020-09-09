@@ -10,24 +10,24 @@ import Foundation
 #if canImport(UIKit)
 import UIKit
 
-extension AttributedString {
+extension Attributed {
     // MARK: - Text Color
     
     /// Make text underlined within a specific range (using NSRange)
     /// - Parameter range: The range of text intended to be underlined
     /// - Returns: Attributed Strings
     func highlight(in range: NSRange,
-                   with color: UIColor) -> AttributedString {
+                   with color: UIColor) -> Attributed {
         
         attributedString.addAttribute(.backgroundColor, value: color, range: range)
         
-        return AttributedString(attributedString)
+        return Attributed(attributedString)
     }
     
     /// Make text bold within a specific range (using 1...9)
     /// - Parameter range: The range of text intended to be bold
     func highlight(in range: ClosedRange<Int>? = nil,
-                   with color: UIColor = .label) -> AttributedString {
+                   with color: UIColor = .label) -> Attributed {
         
         let range = range ?? 0...attributedString.length
         let length = range.upperBound - range.lowerBound
@@ -39,7 +39,7 @@ extension AttributedString {
     func highlight(usingRegex pattern: String,
                    options: NSRegularExpression.Options,
                    color: UIColor = .label,
-                   range: ClosedRange<Int>? = nil) throws -> AttributedString {
+                   range: ClosedRange<Int>? = nil) throws -> Attributed {
         
         let range = range ?? 0...attributedString.length
         let length = range.upperBound - range.lowerBound

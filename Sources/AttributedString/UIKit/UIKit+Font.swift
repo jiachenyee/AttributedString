@@ -10,24 +10,24 @@ import Foundation
 #if canImport(UIKit)
 import UIKit
 
-extension AttributedString {
+extension Attributed {
     // MARK: - Fonts
     
     /// Make text underlined within a specific range (using NSRange)
     /// - Parameter range: The range of text intended to be underlined
     /// - Returns: Attributed Strings
     func font(in range: NSRange,
-              with font: UIFont) -> AttributedString {
+              with font: UIFont) -> Attributed {
         
         attributedString.addAttribute(.font, value: font, range: range)
         
-        return AttributedString(attributedString)
+        return Attributed(attributedString)
     }
     
     /// Make text bold within a specific range (using 1...9)
     /// - Parameter range: The range of text intended to be bold
     func font(in range: ClosedRange<Int>? = nil,
-              with selectedFont: UIFont) -> AttributedString {
+              with selectedFont: UIFont) -> Attributed {
         
         let range = range ?? 0...attributedString.length
         let length = range.upperBound - range.lowerBound
@@ -36,7 +36,7 @@ extension AttributedString {
         return font(in: nsRange, with: selectedFont)
     }
     
-    func defaultFont(in range: ClosedRange<Int>? = nil) -> AttributedString {
+    func defaultFont(in range: ClosedRange<Int>? = nil) -> Attributed {
         let range = range ?? 0...attributedString.length
         let length = range.upperBound - range.lowerBound
         let nsRange = NSRange(location: range.lowerBound, length: length)
@@ -47,7 +47,7 @@ extension AttributedString {
     func font(usingRegex pattern: String,
               options: NSRegularExpression.Options,
               selectedFont: UIFont,
-              range: ClosedRange<Int>? = nil) throws -> AttributedString {
+              range: ClosedRange<Int>? = nil) throws -> Attributed {
         
         let range = range ?? 0...attributedString.length
         let length = range.upperBound - range.lowerBound

@@ -15,12 +15,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let attributes = "Never gonna give you up"
-            .attributed()
-            .bold()
-            .italic(in: 0...5)
-            .textColor(in: 0...5, color: .systemRed)
-            .highlight(in: 6...11, with: .cyan)
+        let attributes = Attributed(Attributed("Never gonna give you up")
+                                            .bold()
+                                            .italic(in: 0...5)
+                                            .textColor(in: 0...5, color: .systemRed)
+                                            .highlight(in: 6...11, with: .cyan),
+                                          Attributed("HAHA")
+                                            .bold(),
+                                          Attributed(UIImage(systemName: "square.and.pencil")!))
         
         textView.attributedText = attributes.attributedString
         

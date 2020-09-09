@@ -10,7 +10,7 @@ import Foundation
 #if canImport(AppKit)
 import AppKit
 
-extension AttributedString {
+extension Attributed {
     
     func bold(withRange range: ClosedRange<Int>) {
         
