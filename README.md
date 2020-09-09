@@ -3,16 +3,13 @@
 A simple way to deal with NSAttributedStrings
 
 ## Features
-✅ Easily set text as **bold**, _italics_ or _**both at the same time**_.
+- [x] Easily set text as **bold**, _italics_ or _**both at the same time**_. 
+- [x] Set text colors and highlight colors using ranges 
+- [x] Use Regular Expressions to easily provide attributes to certain parts of a String
+- [x] Easily underline words
 
 ## To-Dos
-❌ Add text color support
-
-❌ Add background color support
-
-❌ Add font support
-
-❌ Add table support
+- [ ] Add table support
 
 ## Installation
 
@@ -229,6 +226,109 @@ Important to set it as the text in a Label or TextView
     
 ```swift
 .underline(usingRegex: "[0-9]", options: [], color: .systemRed, style: .single)
+```
+</details>
+
+#### Text Colors
+<details>
+<summary><strong>Set a text color for the whole string</strong></summary>
+
+```swift
+.textColor(color: .systemRed)
+```
+</details>
+
+<details>
+<summary><strong>Set a text color for the specific range</strong></summary>
+
+```swift
+.textColor(in: 0...5, color: .systemRed)
+```
+</details>
+
+<details>
+<summary><strong>Set a text color for the specific range using NSRange</strong></summary>
+
+```swift
+.textColor(in: NSRange(location: 0, length: 5), color: .systemRed)
+```
+</details>
+
+<details>
+<summary><strong>Set a text color based on Regular Expression</strong></summary>
+
+```swift
+.textColor(usingRegex: "[0-9]", options: [], color: .systemRed)
+```
+</details>
+
+#### Highlight Colors
+<details>
+<summary><strong>Set a highlight color for the whole string</strong></summary>
+
+```swift
+.highlight(with: .systemRed)
+```
+</details>
+
+<details>
+<summary><strong>Set a highlight color within a specific range</strong></summary>
+
+```swift
+.highlight(in: 0...5, with: .systemRed)
+```
+</details>
+
+<details>
+<summary><strong>Set a highlight color within a specific range using NSRange</strong></summary>
+
+```swift
+.highlight(in: NSRange(location: 0, length: 5), with: .systemRed)
+```
+</details>
+
+<details>
+<summary><strong>Set a highlight color based on Regular Expression</strong></summary>
+
+```swift
+.highlight(usingRegex: "[0-9]", options: [], color: .systemRed)
+```
+</details>
+
+#### Custom Fonts
+<details>
+<summary><strong>Set a custom font for the whole string</strong></summary>
+
+> Result: `Never gonna give you up`
+```swift
+.font(with: UIFont.monospacedSystemFont(ofSize: 20, weight: .regular))
+```
+</details>
+
+<details>
+<summary><strong>Set a custom font within a specific range</strong></summary>
+
+> Result: `Never` gonna give you up
+```swift
+.font(in: 0...5, with: UIFont.monospacedSystemFont(ofSize: 20, weight: .regular))
+```
+</details>
+
+<details>
+<summary><strong>Set a custom font within a specific range using NSRange</strong></summary>
+
+> Result: `Never` gonna give you up
+```swift
+.font(in: NSRange(location: 0, length: 5), with: UIFont.monospacedSystemFont(ofSize: 20, weight: .regular))
+```
+</details>
+
+<details>
+<summary><strong>Set a custom font based on Regular Expression</strong></summary>
+
+> Result: `1234`ABCD`9`EF
+```swift
+.font(usingRegex: "[0-9]", options: [], selectedFont: UIFont.monospacedSystemFont(ofSize: 20, weight: .regular))
 ```
 </details>
 
