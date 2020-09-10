@@ -35,9 +35,10 @@ textView.attributedText = rickroll.attributedString
 - [x] Use Regular Expressions to easily provide attributes to certain parts of a String
 - [x] Easily underline words
 - [x] Easily embed an image into the text
+- [x] Easily create tables using 2D String arrays
 
 ## To-Dos
-- [ ] Add table support
+- [ ] Text alignment support
 
 ## Installation
 ### Swift Package Manager
