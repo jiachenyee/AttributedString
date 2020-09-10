@@ -14,6 +14,7 @@
 		32A164682508D1180054CC0A /* UIKit+HighlightColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A164662508D1180054CC0A /* UIKit+HighlightColor.swift */; };
 		32A164692508D1180054CC0A /* UIKit+TextColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A164672508D1180054CC0A /* UIKit+TextColor.swift */; };
 		32A1646B2508D3560054CC0A /* UIKit+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A1646A2508D3560054CC0A /* UIKit+Font.swift */; };
+		32A1646D250A1A040054CC0A /* DemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A1646C250A1A030054CC0A /* DemoTableViewController.swift */; };
 		32D53B6D2507662F00C2BDD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D53B6C2507662F00C2BDD2 /* AppDelegate.swift */; };
 		32D53B6F2507662F00C2BDD2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D53B6E2507662F00C2BDD2 /* SceneDelegate.swift */; };
 		32D53B712507662F00C2BDD2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D53B702507662F00C2BDD2 /* ViewController.swift */; };
@@ -51,6 +52,7 @@
 		32A164662508D1180054CC0A /* UIKit+HighlightColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+HighlightColor.swift"; sourceTree = "<group>"; };
 		32A164672508D1180054CC0A /* UIKit+TextColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+TextColor.swift"; sourceTree = "<group>"; };
 		32A1646A2508D3560054CC0A /* UIKit+Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Font.swift"; sourceTree = "<group>"; };
+		32A1646C250A1A030054CC0A /* DemoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTableViewController.swift; sourceTree = "<group>"; };
 		32D53B692507662F00C2BDD2 /* AttributedStrings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AttributedStrings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32D53B6C2507662F00C2BDD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32D53B6E2507662F00C2BDD2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				32D53B6E2507662F00C2BDD2 /* SceneDelegate.swift */,
 				32D53B702507662F00C2BDD2 /* ViewController.swift */,
 				32D53B722507662F00C2BDD2 /* Main.storyboard */,
+				32A1646C250A1A030054CC0A /* DemoTableViewController.swift */,
 				32D53B752507663400C2BDD2 /* Assets.xcassets */,
 				32D53B772507663400C2BDD2 /* LaunchScreen.storyboard */,
 				32D53B7A2507663400C2BDD2 /* Info.plist */,
@@ -330,6 +333,7 @@
 				32D53BA12507700400C2BDD2 /* Attributes+AppKit.swift in Sources */,
 				32A164632508B5F30054CC0A /* UIKit+Italics.swift in Sources */,
 				32A164692508D1180054CC0A /* UIKit+TextColor.swift in Sources */,
+				32A1646D250A1A040054CC0A /* DemoTableViewController.swift in Sources */,
 				32A164682508D1180054CC0A /* UIKit+HighlightColor.swift in Sources */,
 				32D53B6D2507662F00C2BDD2 /* AppDelegate.swift in Sources */,
 				32D53B6F2507662F00C2BDD2 /* SceneDelegate.swift in Sources */,
