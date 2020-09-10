@@ -493,3 +493,26 @@ Important to set it as the text in a Label or TextView
 .removeUnderline(usingRegex: "[0-9]", options: [], color: .systemRed, style: .single)
 ```
 </details>
+
+### Creating Tables
+#### Creating a simple table using 2D String array
+
+```swift
+let table = [["never", "gonna", "give", "you", "up"],
+             ["never", "gonna", "let", "you", "down"],
+             ["never", "gonna", "run", "around", "and", "desert", "you"],
+             ["never", "gonna", "make", "you", "cry"],
+             ["never", "gonna", "say", "goodbye"],
+             ["never", "gonna", "tell", "a", "lie", "and", "hurt", "you"]]```
+             
+let attributed = try! Attributed(table: table],
+
+                                 // Removing header rows
+                                 hasHeaderRow: false,
+
+                                 // Turning on table borders
+                                 hasBorders: true,
+                   
+                                 // Setting border color to blue
+                                 color: .systemBlue)
+
