@@ -32,7 +32,8 @@ public class Attributed {
     let defaultBoldFont = UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)
     
     #if canImport(UIKit)
-    init(_ image: UIImage, customSize: CGSize? = nil) {
+    public init(_ image: UIImage,
+                customSize: CGSize? = nil) {
         let textAttachment = NSTextAttachment(image: {
             if let newSize = customSize {
                 return image.resizeImage(newSize)
@@ -44,14 +45,14 @@ public class Attributed {
     }
     
     #elseif canImport(AppKit)
-    init(_ image: NSImage) {
+    public init(_ image: NSImage) {
         let textAttachment = NSTextAttachment(data: image.tiffRepresentation, ofType: "tiff")
         
         self.attributedString = NSMutableAttributedString(attachment: textAttachment)
     }
     #endif
     
-    init(_ strings: Attributed...) {
+    public init(_ strings: Attributed...) {
         let attributedString = NSMutableAttributedString()
         
         strings.forEach { (string) in
@@ -61,7 +62,7 @@ public class Attributed {
         self.attributedString = attributedString
     }
     
-    init(_ strings: NSMutableAttributedString...) {
+    public init(_ strings: NSMutableAttributedString...) {
         let attributedString = NSMutableAttributedString()
         
         strings.forEach { (string) in
@@ -71,7 +72,7 @@ public class Attributed {
         self.attributedString = attributedString
     }
     
-    init(_ strings: String...) {
+    public init(_ strings: String...) {
         let attributedString = NSMutableAttributedString()
         
         strings.forEach { (string) in
@@ -82,7 +83,7 @@ public class Attributed {
         self.attributedString = attributedString
     }
     
-    init(usingData data: Data,
+    public init(usingData data: Data,
          ofType type: NSAttributedString.DocumentType,
          characterEncoding: String.Encoding? = nil) throws {
         
@@ -99,12 +100,12 @@ public class Attributed {
                                                               documentAttributes: nil)
     }
     
-    enum TableErrors: Error {
+    public enum TableErrors: Error {
         case insufficientElements
         case insufficientRows
     }
     
-    init(table: [[String]], hasHeaderRow: Bool = true, width: CGFloat = 100, hasBorders: Bool = true, color: UIColor = .label) throws {
+    public init(table: [[String]], hasHeaderRow: Bool = true, width: CGFloat = 100, hasBorders: Bool = true, color: UIColor = .label) throws {
         var tableHTML = "<table style=\"width:\(width)%\">"
         
         if table.count == 0 {
@@ -175,7 +176,7 @@ public class Attributed {
         return color.htmlRGBColor
     }
     
-    static func +(lhs: Attributed, rhs: Attributed) -> Attributed {
+    public static func +(lhs: Attributed, rhs: Attributed) -> Attributed {
         let string = lhs.attributedString ?? NSMutableAttributedString()
         
         string.append(rhs.attributedString)
