@@ -10,7 +10,7 @@ import Foundation
 #if canImport(UIKit)
 import UIKit
 
-extension Attributed {
+public extension Attributed {
     // MARK: - Text Color
     
     /// Make text underlined within a specific range (using NSRange)

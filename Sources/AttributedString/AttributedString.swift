@@ -5,13 +5,13 @@ import UIKit
 import AppKit
 #endif
 
-extension String {
+public extension String {
     func attributed() -> Attributed {
         return Attributed(self)
     }
 }
 
-extension NSAttributedString {
+public extension NSAttributedString {
     func attributed() -> Attributed {
         let mutable = NSMutableAttributedString(attributedString: self)
         
@@ -19,13 +19,13 @@ extension NSAttributedString {
     }
 }
 
-extension UIImage {
+public extension UIImage {
     func attributed() -> Attributed {
         return Attributed(self)
     }
 }
 
-class Attributed {
+public class Attributed {
     var attributedString: NSMutableAttributedString!
     
     let defaultFont = UIFont.systemFont(ofSize: UIFont.systemFontSize)
