@@ -26,7 +26,7 @@ public extension UIImage {
 }
 
 public class Attributed {
-    var attributedString: NSMutableAttributedString!
+    public var attributedString: NSMutableAttributedString!
     
     let defaultFont = UIFont.systemFont(ofSize: UIFont.systemFontSize)
     let defaultBoldFont = UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)
