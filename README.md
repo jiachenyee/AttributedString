@@ -2,15 +2,72 @@
 
 A simple way to deal with NSAttributedStrings
 
+## Demo
+<img src="Demo-Text.png" width="200"> <img src="Demo-Table.png" width="200">
+
+<details>
+<summary><strong>Demo Text Snippet</strong></summary>
+
+```swift
+// lyrics is just a String of the lyrics to Never Gonna Give You Up
+let rickroll = lyrics
+
+    // Converts the lyrics (String) to Attributed
+    .attributed() 
+
+    // Highlights "Never gonna" blue
+    .highlight(usingRegex: "Never gonna", options: [], color: .systemBlue) 
+
+    // Sets text color of "Never gonna" to system background
+    .textColor(usingRegex: "Never gonna", options: [], color: .systemBackground) 
+
+    // Sets anything within 2 brackets as italics 
+    // E.g. (Hello) or (123)
+    .italic(usingRegex: "\\((.)+\\)", options: [])
+
+    // Makes everything between 0 and 23 bold
+    // Basically the title
+    .bold(in: 0...23)
+
+// Set attributed text of a textView to the rickroll string generated
+textView.attributedText = rickroll.attributedString
+```
+</details>
+
+<details>
+<summary><strong>Demo Table Snippet</strong></summary>
+
+```swift
+let table = [["never", "gonna", "give", "you", "up"],
+             ["never", "gonna", "let", "you", "down"],
+             ["never", "gonna", "run", "around", "and", "desert", "you"],
+             ["never", "gonna", "make", "you", "cry"],
+             ["never", "gonna", "say", "goodbye"],
+             ["never", "gonna", "tell", "a", "lie", "and", "hurt", "you"]]```
+             
+let attributed = try! Attributed(table: table],
+
+                                 // Removing header rows, default is true
+                                 hasHeaderRow: false, 
+
+                                 // Turning on table borders, default is true
+                                 hasBorders: true,
+                   
+                                 // Setting border color to blue, default is UIColor.label
+                                 color: .systemBlue)
+```
+</details>
+
 ## Features
 - [x] Easily set text as **bold**, _italics_ or _**both at the same time**_. 
 - [x] Set text colors and highlight colors using ranges 
 - [x] Use Regular Expressions to easily provide attributes to certain parts of a String
 - [x] Easily underline words
 - [x] Easily embed an image into the text
+- [x] Easily create tables using 2D String arrays
 
 ## To-Dos
-- [ ] Add table support
+- [ ] Text alignment support
 
 ## Installation
 ### Swift Package Manager
@@ -60,6 +117,18 @@ nsAttributedString.attributed()
 Attributed(UIImage(named: "Here's an image")!)
 
 UIImage(named: "image").attributed()
+```
+</details>
+
+<details>
+<summary><strong>Creating using HTML/RTF/TXT files</strong></summary>
+
+```swift
+Attributed(usingData: htmlData, ofType: .html)
+
+Attributed(usingData: rtfData, ofType: .rtf)
+
+Attributed(usingData: htmlData, ofType: .html, characterEncoding: .utf16)
 ```
 </details>
 
@@ -454,3 +523,7 @@ Important to set it as the text in a Label or TextView
 .removeUnderline(usingRegex: "[0-9]", options: [], color: .systemRed, style: .single)
 ```
 </details>
+
+### Creating Tables
+#### Creating a simple table using 2D String array
+

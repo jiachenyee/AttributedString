@@ -25,5 +25,6 @@ let package = Package(
         .testTarget(
             name: "AttributedStringTests",
             dependencies: ["AttributedString"]),
-    ]
+    ],
+    swiftLanguageVersions: [.v5]
 )
