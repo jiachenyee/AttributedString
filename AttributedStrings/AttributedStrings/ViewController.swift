@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var sampleCode: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,5 +99,35 @@ Never gonna tell a lie and hurt you
         
         textView.attributedText = attributes.attributedString
         
+        let sampleCodeString = try! """
+        // Converts the lyrics (String) to Attributed
+        .attributed()
+
+        // Highlights "Never gonna" blue
+        .highlight(usingRegex: "Never gonna",
+                   options: [],
+                   color: .systemBlue)
+
+        // Sets text color of "Never gonna" to system background
+        .textColor(usingRegex: "Never gonna",
+                   options: [],
+                   color: .systemBackground)
+
+        // Sets anything within 2 brackets as italics
+        // E.g. (Hello) or (123)
+        .italic(usingRegex: "\\((.)+\\)",
+                options: [])
+
+        // Makes everything between 0 and 23 bold
+        // Basically the title
+        .bold(in: 0...23)
+        """
+            .attributed()
+            .font(with: UIFont.monospacedSystemFont(ofSize: UIFont.systemFontSize, weight: .regular))
+            .textColor(color: .label)
+            .textColor(usingRegex: "//.+", options: [], color: .systemGray2)
+            .textColor(usingRegex: "\\\".+\\\"", options: [], color: .systemRed)
+        
+        sampleCode.attributedText = sampleCodeString.attributedString
     }
 }
