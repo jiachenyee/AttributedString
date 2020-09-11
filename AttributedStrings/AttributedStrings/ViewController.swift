@@ -126,6 +126,7 @@ Never gonna tell a lie and hurt you
             .font(with: UIFont.monospacedSystemFont(ofSize: UIFont.systemFontSize, weight: .regular))
             .textColor(color: .label)
             .textColor(usingRegex: "//.+", options: [], color: .systemGray2)
+            .textColor(usingRegex: "\\\".+\\\"", options: [], color: .systemRed)
         
         sampleCode.attributedText = sampleCodeString.attributedString
     }
