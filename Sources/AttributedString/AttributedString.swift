@@ -25,7 +25,10 @@ public extension UIImage {
     }
 }
 
-public class Attributed {
+public struct Attributed: Equatable {
+    
+    public static var zero: Attributed = "".attributed()
+    
     public var attributedString: NSMutableAttributedString!
     
     let defaultFont = UIFont.systemFont(ofSize: UIFont.systemFontSize)
@@ -176,12 +179,29 @@ public class Attributed {
         return color.htmlRGBColor
     }
     
+    public func append(_ attributed: Attributed) {
+        attributedString.append(attributed.attributedString)
+    }
+    
     public static func +(lhs: Attributed, rhs: Attributed) -> Attributed {
         let string = lhs.attributedString ?? NSMutableAttributedString()
         
         string.append(rhs.attributedString)
         
         return Attributed(string)
+    }
+    
+    public static func +=(lhs: inout Attributed, rhs: Attributed) {
+        lhs.attributedString.append(rhs.attributedString)
+    }
+    
+    public static func ==(lhs: Attributed, rhs: Attributed) -> Bool {
+        lhs.attributedString == rhs.attributedString
+    }
+    
+    
+    enum CodingKeys: CodingKey {
+        case attributedString
     }
 }
 
